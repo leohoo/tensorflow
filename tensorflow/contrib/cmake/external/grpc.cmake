@@ -22,9 +22,9 @@ set(GRPC_TAG 575bda39755b98d1f7099406bb57a6e3b2074874)
 if(WIN32)
   if(${CMAKE_GENERATOR} MATCHES "Visual Studio.*")
     set(grpc_STATIC_LIBRARIES
-        ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/Release/grpc++_unsecure.lib
-        ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/Release/grpc_unsecure.lib
-        ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/Release/gpr.lib)
+        ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/Debug/grpc++_unsecure.lib
+        ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/Debug/grpc_unsecure.lib
+        ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/Debug/gpr.lib)
   else()
     set(grpc_STATIC_LIBRARIES
         ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/grpc++_unsecure.lib
@@ -49,11 +49,11 @@ ExternalProject_Add(grpc
     DOWNLOAD_DIR "${DOWNLOAD_LOCATION}"
     BUILD_IN_SOURCE 1
     BUILD_BYPRODUCTS ${grpc_STATIC_LIBRARIES}
-    BUILD_COMMAND ${CMAKE_COMMAND} --build . --config Release --target grpc++_unsecure
-    COMMAND ${CMAKE_COMMAND} --build . --config Release --target grpc_cpp_plugin
+    BUILD_COMMAND ${CMAKE_COMMAND} --build . --config Debug --target grpc++_unsecure
+    COMMAND ${CMAKE_COMMAND} --build . --config Debug --target grpc_cpp_plugin
     INSTALL_COMMAND ""
     CMAKE_CACHE_ARGS
-        -DCMAKE_BUILD_TYPE:STRING=Release
+        -DCMAKE_BUILD_TYPE:STRING=Debug
         -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF
         -DPROTOBUF_INCLUDE_DIRS:STRING=${PROTOBUF_INCLUDE_DIRS}
         -DPROTOBUF_LIBRARIES:STRING=${protobuf_STATIC_LIBRARIES}
