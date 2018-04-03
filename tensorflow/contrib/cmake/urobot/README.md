@@ -8,6 +8,7 @@ Tool set
 * SWIG
 * Visual Studio 2015 with C++ tools
 * Python 3.5.4 (need DEBUG symbols and binaries if you want to build the debug version of the lib)
+* linux shell on windows (e.g. ubuntu on windows)
 
 Prepare the source code
 -----------------------
