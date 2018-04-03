@@ -26,7 +26,7 @@ Prepare the source code
   Change swig and python paths to match your environment
   ```text
   cmake .. -A x64 -DCMAKE_BUILD_TYPE=Release ^
-  -Dtensorflow_BUILD_ALL_KERNELS=OFF ^
+  -Dtensorflow_BUILD_ALL_KERNELS=ON ^
   -Dtensorflow_BUILD_PYTHON_BINDINGS=OFF ^
   -Dtensorflow_BUILD_CC_EXAMPLE=OFF ^
   -Dtensorflow_BUILD_CONTRIB_KERNELS=OFF ^
