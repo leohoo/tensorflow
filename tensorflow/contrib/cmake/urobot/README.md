@@ -16,6 +16,7 @@ Prepare the source code
 * Clone the repo
   ```text
   git clone https://github.com/leohoo/tensorflow.git
+  cd tensorflow
   git checkout mybuild
   ```
 * Edit cmake-release.bat / cmake-debug.bat
