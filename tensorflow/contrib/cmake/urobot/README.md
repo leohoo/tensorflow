@@ -47,6 +47,7 @@ Prepare the source code
   `/fl` will create a build log (msbuild.log)
   
 * Copy the target libs into a single folder
+
   You need a bash shell (e.g. ubuntu on windows) to run the script
   
   ```text
