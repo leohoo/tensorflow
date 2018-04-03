@@ -17,14 +17,14 @@ include (ExternalProject)
 set(GRPC_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/include)
 set(GRPC_URL https://github.com/grpc/grpc.git)
 set(GRPC_BUILD ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc)
-set(GRPC_TAG 730b778632e79cc3c96ad237f282d687ee325ce7)
+set(GRPC_TAG bd6bdf93279a39a8cd92978fd7c9d14eccd98fc2)
 
 if(WIN32)
   if(${CMAKE_GENERATOR} MATCHES "Visual Studio.*")
     set(grpc_STATIC_LIBRARIES
-        ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/Release/grpc++_unsecure.lib
-        ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/Release/grpc_unsecure.lib
-        ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/Release/gpr.lib)
+        ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/${CMAKE_BUILD_TYPE}/grpc++_unsecure.lib
+        ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/${CMAKE_BUILD_TYPE}/grpc_unsecure.lib
+        ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/${CMAKE_BUILD_TYPE}/gpr.lib)
   else()
     set(grpc_STATIC_LIBRARIES
         ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/grpc++_unsecure.lib
@@ -35,6 +35,7 @@ else()
   set(grpc_STATIC_LIBRARIES
       ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/libgrpc++_unsecure.a
       ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/libgrpc_unsecure.a
+      ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/third_party/cares/cares/lib/libcares.a
       ${CMAKE_CURRENT_BINARY_DIR}/grpc/src/grpc/libgpr.a)
 endif()
 
@@ -48,11 +49,11 @@ ExternalProject_Add(grpc
     DOWNLOAD_DIR "${DOWNLOAD_LOCATION}"
     BUILD_IN_SOURCE 1
     BUILD_BYPRODUCTS ${grpc_STATIC_LIBRARIES}
-    BUILD_COMMAND ${CMAKE_COMMAND} --build . --config Release --target grpc++_unsecure
-    COMMAND ${CMAKE_COMMAND} --build . --config Release --target grpc_cpp_plugin
+    BUILD_COMMAND ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target grpc++_unsecure
+    COMMAND ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target grpc_cpp_plugin
     INSTALL_COMMAND ""
     CMAKE_CACHE_ARGS
-        -DCMAKE_BUILD_TYPE:STRING=Release
+        -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
         -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF
         -DPROTOBUF_INCLUDE_DIRS:STRING=${PROTOBUF_INCLUDE_DIRS}
         -DPROTOBUF_LIBRARIES:STRING=${protobuf_STATIC_LIBRARIES}
