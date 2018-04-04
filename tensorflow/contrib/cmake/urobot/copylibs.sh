@@ -14,7 +14,7 @@ for lib in $libs; do
     for f in $FOUND; do
       cp $f $2
       echo $f copied to $2.
-#      break # copy first match only
+      break # copy first match only
     done
   fi;
 done
