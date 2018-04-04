@@ -7,7 +7,7 @@ libs="zlibstaticd?.lib libprotobufd?.lib giflib.lib libpng12_staticd?.lib libjpe
 for lib in $libs; do
   LIB=$(echo "$lib" | sed -e 's/[\r\n]//g');
   printf "%30s => " "$LIB"
-  FOUND=$(find . -regex ".*/$BUILD_TYPE/$LIB")
+  FOUND=$(find . -regex ".*/$BUILD_TYPE/$LIB" | grep -v grpc)
   if [ -z "$FOUND" ]; then
     echo -e "\033[35mNOT found.\033[0m";
   else
