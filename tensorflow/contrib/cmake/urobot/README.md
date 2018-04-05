@@ -141,3 +141,7 @@ In your project settings
   tf_core_lib.lib
   tf_core_ops.lib
   ```
+
+### References
+
+[Building a standalone C++ Tensorflow program on Windows](https://joe-antognini.github.io/machine-learning/windows-tf-project)
