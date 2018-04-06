@@ -40,6 +40,61 @@ else(tensorflow_BUILD_ALL_KERNELS)
   )
 endif(tensorflow_BUILD_ALL_KERNELS)
 
+# palm-detector ops
+set(urobot_srcs
+    "${tensorflow_source_dir}/tensorflow/core/kernels/fill_functor.h"
+    "${tensorflow_source_dir}/tensorflow/core/kernels/fill_functor.cc"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/no_op.h"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/no_op.cc"
+
+	"${tensorflow_source_dir}/tensorflow/core/kernels/bias_op.h"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/bias_op.cc"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/identity_op.h"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/identity_op.cc"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/cwise_ops_common.h"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/cwise_ops_common.cc"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/cwise_op_add_1.cc"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/cwise_op_sub.cc"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/cwise_op_mul_1.cc"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/cwise_op_rsqrt.cc"
+
+	"${tensorflow_source_dir}/tensorflow/core/kernels/constant_op.h"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/constant_op.cc"
+
+	"${tensorflow_source_dir}/tensorflow/core/kernels/softmax_op_functor.h"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/softmax_op.cc"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/relu_op.h"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/relu_op.cc"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/matmul_op.h"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/matmul_op.cc"
+
+	"${tensorflow_source_dir}/tensorflow/core/kernels/conv_ops.h"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/conv_ops.cc"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/conv_2d.h"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/depthwise_conv_op.h"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/depthwise_conv_op.cc"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/deep_conv2d.cc"
+
+	"${tensorflow_source_dir}/tensorflow/core/kernels/reduction_ops_common.h"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/reduction_ops_common.cc"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/reduction_ops_mean.cc"
+
+	"${tensorflow_source_dir}/tensorflow/core/kernels/ops_util.h"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/ops_util.cc"
+
+	"${tensorflow_source_dir}/tensorflow/core/kernels/transpose_op.h"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/transpose_op.cc"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/transpose_functor.h"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/transpose_functor_cpu.cc"
+
+	"${tensorflow_source_dir}/tensorflow/core/kernels/dynamic_partition_op.cc"
+	"${tensorflow_source_dir}/tensorflow/core/kernels/dynamic_stitch_op.cc"
+
+	"${tensorflow_source_dir}/tensorflow/core/kernels/function_ops.cc"
+)
+
+set(tf_core_kernels_srcs ${urobot_srcs})
+
 if(tensorflow_BUILD_CONTRIB_KERNELS)
   set(tf_contrib_kernels_srcs
       "${tensorflow_source_dir}/tensorflow/contrib/boosted_trees/kernels/model_ops.cc"
