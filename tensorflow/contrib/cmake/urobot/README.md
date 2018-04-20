@@ -13,6 +13,7 @@ Tool set
 Prepare the source code
 -----------------------
 * start "VS2015 x64 Native Tools Command Prompt" (Make sure we are using the x64 tools)
+
  if you still got a 32bit compiler, try `set PreferredToolArchitecture=x64`
 
 * Clone the repo
@@ -48,6 +49,7 @@ Prepare the source code
   msbuild /p:Configuration=Release ALL_BUILD.vcxproj /fl
   ```
   `/fl` will create a build log (msbuild.log)
+  
   use `/m` to force use multi-core
   
 * Copy the target libs into a single folder
