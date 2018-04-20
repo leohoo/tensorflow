@@ -14,7 +14,7 @@ Prepare the source code
 -----------------------
 * start "VS2015 x64 Native Tools Command Prompt" (Make sure we are using the x64 tools)
 
- if you still got a 32bit compiler, try `set PreferredToolArchitecture=x64`
+  if you still got a 32bit compiler, try `set PreferredToolArchitecture=x64`
 
 * Clone the repo
   ```text
