@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{adc078e4-d1dd-48e0-9b19-d84a0dd2b5e9}</ProjectGuid>
+    <Keyword>StaticLibrary</Keyword>
+    <RootNamespace>uwp_lite</RootNamespace>
+    <DefaultLanguage>ja-JP</DefaultLanguage>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.10586.0</WindowsTargetPlatformMinVersion>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\..\..\..;..\..\tools\make\downloads;..\..\tools\make\downloads\eigen;..\..\tools\make\downloads\absl;..\..\tools\make\downloads\gemmlowp;..\..\tools\make\downloads\farmhash/src;..\..\tools\make\downloads\flatbuffers/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_UNICODE;UNICODE;NOMINMAX;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FARMHASH_NO_BUILTIN_EXPECT;FLATBUFFERS_NO_ABSOLUTE_PATH_RESOLUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\..\..\..;..\..\tools\make\downloads;..\..\tools\make\downloads\eigen;..\..\tools\make\downloads\absl;..\..\tools\make\downloads\gemmlowp;..\..\tools\make\downloads\farmhash/src;..\..\tools\make\downloads\flatbuffers/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_UNICODE;UNICODE;NOMINMAX;_SCL_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;FARMHASH_NO_BUILTIN_EXPECT;FLATBUFFERS_NO_ABSOLUTE_PATH_RESOLUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+    <Lib>
+      <LinkTimeCodeGeneration>false</LinkTimeCodeGeneration>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\allocation.cc" />
+    <ClCompile Include="..\..\arena_planner.cc" />
+    <ClCompile Include="..\..\c/c_api_internal.c" />
+    <ClCompile Include="..\..\core/api/error_reporter.cc" />
+    <ClCompile Include="..\..\core/api/flatbuffer_conversions.cc" />
+    <ClCompile Include="..\..\core/api/op_resolver.cc" />
+    <ClCompile Include="..\..\graph_info.cc" />
+    <ClCompile Include="..\..\interpreter.cc" />
+    <ClCompile Include="..\..\kernels/activations.cc" />
+    <ClCompile Include="..\..\kernels/add.cc" />
+    <ClCompile Include="..\..\kernels/arg_min_max.cc" />
+    <ClCompile Include="..\..\kernels/audio_spectrogram.cc" />
+    <ClCompile Include="..\..\kernels/basic_rnn.cc" />
+    <ClCompile Include="..\..\kernels/batch_to_space_nd.cc" />
+    <ClCompile Include="..\..\kernels/bidirectional_sequence_lstm.cc" />
+    <ClCompile Include="..\..\kernels/bidirectional_sequence_rnn.cc" />
+    <ClCompile Include="..\..\kernels/cast.cc" />
+    <ClCompile Include="..\..\kernels/comparisons.cc" />
+    <ClCompile Include="..\..\kernels/concatenation.cc" />
+    <ClCompile Include="..\..\kernels/conv.cc" />
+    <ClCompile Include="..\..\kernels/depthwise_conv.cc" />
+    <ClCompile Include="..\..\kernels/dequantize.cc" />
+    <ClCompile Include="..\..\kernels/detection_postprocess.cc" />
+    <ClCompile Include="..\..\kernels/div.cc" />
+    <ClCompile Include="..\..\kernels/eigen_support.cc" />
+    <ClCompile Include="..\..\kernels/elementwise.cc" />
+    <ClCompile Include="..\..\kernels/embedding_lookup.cc" />
+    <ClCompile Include="..\..\kernels/embedding_lookup_sparse.cc" />
+    <ClCompile Include="..\..\kernels/exp.cc" />
+    <ClCompile Include="..\..\kernels/expand_dims.cc" />
+    <ClCompile Include="..\..\kernels/fake_quant.cc" />
+    <ClCompile Include="..\..\kernels/floor.cc" />
+    <ClCompile Include="..\..\kernels/floor_div.cc" />
+    <ClCompile Include="..\..\kernels/fully_connected.cc" />
+    <ClCompile Include="..\..\kernels/gather.cc" />
+    <ClCompile Include="..\..\kernels/gemm_support.cc" />
+    <ClCompile Include="..\..\kernels/hashtable_lookup.cc" />
+    <ClCompile Include="..\..\kernels/internal/kernel_utils.cc" />
+    <ClCompile Include="..\..\kernels/internal/mfcc.cc">
+      <ObjectFileName>$(IntDir)\internal-mfcc.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\kernels/internal/mfcc_dct.cc" />
+    <ClCompile Include="..\..\kernels/internal/mfcc_mel_filterbank.cc" />
+    <ClCompile Include="..\..\kernels/internal/optimized/neon_tensor_utils.cc" />
+    <ClCompile Include="..\..\kernels/internal/quantization_util.cc" />
+    <ClCompile Include="..\..\kernels/internal/reference/portable_tensor_utils.cc" />
+    <ClCompile Include="..\..\kernels/internal/spectrogram.cc" />
+    <ClCompile Include="..\..\kernels/internal/tensor_utils.cc" />
+    <ClCompile Include="..\..\kernels/internal/test_util.cc" />
+    <ClCompile Include="..\..\kernels/kernel_util.cc" />
+    <ClCompile Include="..\..\kernels/l2norm.cc" />
+    <ClCompile Include="..\..\kernels/layer_norm_lstm.cc" />
+    <ClCompile Include="..\..\kernels/local_response_norm.cc" />
+    <ClCompile Include="..\..\kernels/logical.cc" />
+    <ClCompile Include="..\..\kernels/lsh_projection.cc" />
+    <ClCompile Include="..\..\kernels/lstm.cc" />
+    <ClCompile Include="..\..\kernels/maximum_minimum.cc" />
+    <ClCompile Include="..\..\kernels/mfcc.cc" />
+    <ClCompile Include="..\..\kernels/mul.cc" />
+    <ClCompile Include="..\..\kernels/neg.cc" />
+    <ClCompile Include="..\..\kernels/one_hot.cc" />
+    <ClCompile Include="..\..\kernels/pack.cc" />
+    <ClCompile Include="..\..\kernels/pad.cc" />
+    <ClCompile Include="..\..\kernels/pooling.cc" />
+    <ClCompile Include="..\..\kernels/pow.cc" />
+    <ClCompile Include="..\..\kernels/reduce.cc" />
+    <ClCompile Include="..\..\kernels/register.cc" />
+    <ClCompile Include="..\..\kernels/relu1.cc" />
+    <ClCompile Include="..\..\kernels/reshape.cc" />
+    <ClCompile Include="..\..\kernels/resize_bilinear.cc" />
+    <ClCompile Include="..\..\kernels/select.cc" />
+    <ClCompile Include="..\..\kernels/shape.cc" />
+    <ClCompile Include="..\..\kernels/skip_gram.cc" />
+    <ClCompile Include="..\..\kernels/slice.cc" />
+    <ClCompile Include="..\..\kernels/space_to_batch_nd.cc" />
+    <ClCompile Include="..\..\kernels/space_to_depth.cc" />
+    <ClCompile Include="..\..\kernels/sparse_to_dense.cc" />
+    <ClCompile Include="..\..\kernels/split.cc" />
+    <ClCompile Include="..\..\kernels/squeeze.cc" />
+    <ClCompile Include="..\..\kernels/strided_slice.cc" />
+    <ClCompile Include="..\..\kernels/sub.cc" />
+    <ClCompile Include="..\..\kernels/svdf.cc" />
+    <ClCompile Include="..\..\kernels/tile.cc" />
+    <ClCompile Include="..\..\kernels/topk_v2.cc" />
+    <ClCompile Include="..\..\kernels/transpose.cc" />
+    <ClCompile Include="..\..\kernels/transpose_conv.cc" />
+    <ClCompile Include="..\..\kernels/unidirectional_sequence_lstm.cc" />
+    <ClCompile Include="..\..\kernels/unidirectional_sequence_rnn.cc" />
+    <ClCompile Include="..\..\kernels/unpack.cc" />
+    <ClCompile Include="..\..\kernels/zeros_like.cc" />
+    <ClCompile Include="..\..\mmap_allocation_disabled.cc" />
+    <ClCompile Include="..\..\model.cc" />
+    <ClCompile Include="..\..\mutable_op_resolver.cc" />
+    <ClCompile Include="..\..\nnapi_delegate_disabled.cc" />
+    <ClCompile Include="..\..\optional_debug_tools.cc" />
+    <ClCompile Include="..\..\profiling/time.cc" />
+    <ClCompile Include="..\..\simple_memory_arena.cc" />
+    <ClCompile Include="..\..\stderr_reporter.cc" />
+    <ClCompile Include="..\..\string_util.cc" />
+    <ClCompile Include="..\..\tools/make/downloads/farmhash/src/farmhash.cc" />
+    <ClCompile Include="..\..\tools/make/downloads/fft2d/fftsg.c" />
+    <ClCompile Include="..\..\util.cc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
