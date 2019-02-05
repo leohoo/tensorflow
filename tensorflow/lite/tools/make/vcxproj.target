@@ -1,0 +1,8 @@
+vcxproj:
+	$(shell tf='lite-src-list.txt'; rm -f $${tf}; for src in $(TF_LITE_CC_SRCS); \
+		do echo $${src} | \
+			sed 's/tensorflow\/lite//g; s/\//\\/g; s/.*/\t\t<ClCompile Include="..\\..&" \/>/g' | \
+			grep -v '\(mmap_allocation.cc\|nnapi_delegate.cc\)' >> $${tf}; \
+		done; \
+		sed -e "/source files/r $${tf}" $(MAKEFILE_DIR)/vcxproj.template > $(MAKEFILE_DIR)/tensorflow-lite.vcxproj; \
+		rm $${tf} )
